@@ -109,6 +109,7 @@ section.fords-flash-carousel {
 	height: 100%;
 	z-index: 1001;
 	padding-top: 200px;
+	background: #0000005d;
 }
 
 .slide__content {
@@ -118,6 +119,7 @@ section.fords-flash-carousel {
 	z-index: 1001;
 	display: flex;
 	justify-content: space-between;
+	padding: 20px;
 }
 
 .slide__info {
@@ -139,7 +141,7 @@ section.fords-flash-carousel {
 }
 
 .meta__nav__prev {
-	
+	margin-right: 10px;
 	color: red;
 }
 
@@ -182,6 +184,7 @@ section.fords-flash-carousel {
 	font-family: 'roobert', sans-serif;
 	font-size: clamp(40px, 10vw, 167px);
 	line-height: .9em;
+	letter-spacing: -2px;
 	color: #FFFFFF;
 	opacity: 0;
 	display: none;
