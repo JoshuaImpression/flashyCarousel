@@ -2,6 +2,18 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: roobert;
+  src: url("RoobertTRIAL-Regular.98083dd4.woff2"), format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: roobert;
+  src: url("RoobertTRIAL-Light.9f29d620.woff2"), format("woff2");
+  font-weight: 300;
+}
+
 :root {
   font-size: 16px;
 }
@@ -32,6 +44,7 @@ section.fords-flash-carousel {
   padding: 60px 0;
   font-family: termina, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
   position: relative;
+  overflow: hidden;
 }
 
 .wrapper {
@@ -88,16 +101,47 @@ section.fords-flash-carousel {
   position: absolute;
 }
 
-.meta {
-  text-align: center;
-  justify-self: center;
-  width: max-content;
-  margin: 1rem 0 0;
+.slide__content {
+  z-index: 1001;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+}
+
+.slide__info {
+  color: #fff;
+  max-width: 389px;
+  font-weight: 300;
+}
+
+.slide__info h4 {
+  margin-top: 0;
+}
+
+.meta__nav {
+  display: flex;
 }
 
 .meta__nav__prev, .meta__nav__next {
-  cursor: pointer;
   color: red;
+}
+
+.slide__nav__button {
+  cursor: pointer;
+  border: 1px solid #ffffff80;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  transition: all .5s ease-in-out;
+  display: flex;
+}
+
+.slide__nav__button:hover {
+  border: 1px solid #fff;
 }
 
 .meta__heading {
@@ -109,13 +153,20 @@ section.fords-flash-carousel {
 
 .meta__content {
   color: var(--color-text-slide);
+  pointer-events: none;
   display: grid;
+  position: relative;
 }
 
 .meta__content-title {
+  color: #fff;
   opacity: 0;
   will-change: opacity, transform;
-  grid-area: 1 / 1 / 2 / 2;
+  word-wrap: break-word;
+  font-family: roobert, sans-serif;
+  font-size: clamp(40px, 10vw, 167px);
+  line-height: .9em;
+  display: none;
 }
 
 .gallery {

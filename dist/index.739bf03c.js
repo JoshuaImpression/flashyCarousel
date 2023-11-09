@@ -616,7 +616,8 @@ slideshowMain.setInitialSlide();
 // slideshowNavNext.setInitialSlide(slideshowMain.current < slideshowMain.slidesTotal - 1 ? slideshowMain.current + 1 : 0);
 // Set initial title
 (0, _gsapDefault.default).set(titleElems[slideshowMain.current], {
-    opacity: 1
+    autoAlpha: 1,
+    display: "block"
 });
 // Change slides for the three slideshows
 const onClickNavCtrlEv = (dir)=>{
@@ -626,7 +627,8 @@ const onClickNavCtrlEv = (dir)=>{
         duration: slideshowMain.duration / 2,
         ease: "power3.in",
         y: dir === "next" ? "-100%" : "100%",
-        opacity: 0
+        autoAlpha: 0,
+        display: "none"
     });
     slideshowMain[dir]();
     // slideshowNavPrev[dir]();
@@ -640,7 +642,8 @@ const onClickNavCtrlEv = (dir)=>{
             y: dir === "next" ? "100%" : "-100%"
         },
         y: "0%",
-        opacity: 1,
+        autoAlpha: 1,
+        display: "block",
         delay: slideshowMain.duration / 2
     });
 };
