@@ -597,6 +597,10 @@ const navCtrls = {
 const titleElems = [
     ...document.querySelectorAll(".meta__content > .meta__content-title")
 ];
+// Info elements
+const infoElems = [
+    ...document.querySelectorAll(".slide__info > .slide__info-content")
+];
 // Animates the body color
 const animateBodyBGColor = ()=>{
     (0, _gsapDefault.default).timeline().to(bodyEl, {
@@ -619,11 +623,24 @@ slideshowMain.setInitialSlide();
     autoAlpha: 1,
     display: "block"
 });
+// Set the inital info block
+(0, _gsapDefault.default).set(infoElems[slideshowMain.current], {
+    autoAlpha: 1,
+    display: "block"
+});
 // Change slides for the three slideshows
 const onClickNavCtrlEv = (dir)=>{
     if (slideshowMain.isAnimating) return;
     // Slide out current title
     (0, _gsapDefault.default).to(titleElems[slideshowMain.current], {
+        duration: slideshowMain.duration / 2,
+        ease: "power3.in",
+        y: dir === "next" ? "-100%" : "100%",
+        autoAlpha: 0,
+        display: "none"
+    });
+    // Fade out current info block
+    (0, _gsapDefault.default).to(infoElems[slideshowMain.current], {
         duration: slideshowMain.duration / 2,
         ease: "power3.in",
         y: dir === "next" ? "-100%" : "100%",
@@ -636,6 +653,18 @@ const onClickNavCtrlEv = (dir)=>{
     animateBodyBGColor();
     // Slide in the new (current) title
     (0, _gsapDefault.default).to(titleElems[slideshowMain.current], {
+        duration: slideshowMain.duration / 2,
+        ease: "power3",
+        startAt: {
+            y: dir === "next" ? "100%" : "-100%"
+        },
+        y: "0%",
+        autoAlpha: 1,
+        display: "block",
+        delay: slideshowMain.duration / 2
+    });
+    // Slide in the new info block
+    (0, _gsapDefault.default).to(infoElems[slideshowMain.current], {
         duration: slideshowMain.duration / 2,
         ease: "power3",
         startAt: {
