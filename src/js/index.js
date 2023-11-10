@@ -3,17 +3,17 @@ import { Slideshow } from './slideshow';
 import gsap from 'gsap';
 
 // body element
-const bodyEl = document.body;
+const bodyEl = document.getElementById('flash-carousel');
 // body color
 const bodyColor = getComputedStyle(bodyEl).getPropertyValue('--color-bg');
 // Three Slideshow instances: main, and two for the navigation items
 const slideshowMain = new Slideshow(document.querySelector('.slideshow > div.slides'));
-const slideshowNavNext = new Slideshow(document.querySelector('.slideshow nav.nav--next .slides'), {duration: 1, filtersAnimation: false});
-const slideshowNavPrev = new Slideshow(document.querySelector('.slideshow nav.nav--prev .slides'), {duration: 1, filtersAnimation: false});
+// const slideshowNavNext = new Slideshow(document.querySelector('.slideshow nav.nav--next .slides'), {duration: 1, filtersAnimation: false});
+// const slideshowNavPrev = new Slideshow(document.querySelector('.slideshow nav.nav--prev .slides'), {duration: 1, filtersAnimation: false});
 // Nav controls to navigate the main slideshow
 const navCtrls = {
-    prev: document.querySelector('.slideshow nav.nav--prev'),
-    next: document.querySelector('.slideshow nav.nav--next')
+    prev: document.querySelector('.slideshow nav.meta__nav__prev'),
+    next: document.querySelector('.slideshow nav.meta__nav__next')
 };
 // title elements
 const titleElems = [...document.querySelectorAll('.meta__content > .meta__content-title')];
@@ -38,11 +38,11 @@ const animateBodyBGColor = () => {
 // Set the current slide
 slideshowMain.setInitialSlide();
 // Set up the current slide values for the navigation elements, which are based on the slideshowMain's current value
-slideshowNavPrev.setInitialSlide(slideshowMain.current ? slideshowMain.current - 1 : slideshowMain.slidesTotal - 1);
-slideshowNavNext.setInitialSlide(slideshowMain.current < slideshowMain.slidesTotal - 1 ? slideshowMain.current + 1 : 0);
+// slideshowNavPrev.setInitialSlide(slideshowMain.current ? slideshowMain.current - 1 : slideshowMain.slidesTotal - 1);
+// slideshowNavNext.setInitialSlide(slideshowMain.current < slideshowMain.slidesTotal - 1 ? slideshowMain.current + 1 : 0);
 
 // Set initial title
-gsap.set(titleElems[slideshowMain.current], {opacity: 1});
+gsap.set(titleElems[slideshowMain.current], {autoAlpha: 1, display: "block"});
 
 // Change slides for the three slideshows
 const onClickNavCtrlEv = (dir) => {
@@ -54,12 +54,13 @@ const onClickNavCtrlEv = (dir) => {
         duration: slideshowMain.duration/2,
         ease: 'power3.in',
         y: dir === 'next' ? '-100%' : '100%',
-        opacity: 0
+        autoAlpha: 0,
+        display: "none"
     });
 
     slideshowMain[dir]();
-    slideshowNavPrev[dir]();
-    slideshowNavNext[dir]();
+    // slideshowNavPrev[dir]();
+    // slideshowNavNext[dir]();
     animateBodyBGColor();
 
     // Slide in the new (current) title
@@ -68,7 +69,8 @@ const onClickNavCtrlEv = (dir) => {
         ease: 'power3',
         startAt: {y: dir === 'next' ? '100%' : '-100%'},
         y: '0%',
-        opacity: 1,
+        autoAlpha: 1,
+        display: "block",
         delay: slideshowMain.duration/2
     });
 
