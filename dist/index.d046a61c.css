@@ -291,6 +291,7 @@ section.fords-flash-carousel {
 }
 
 .new__line__title > span {
+  vertical-align: top;
   font-size: clamp(40px, 5vw, 84px);
 }
 
