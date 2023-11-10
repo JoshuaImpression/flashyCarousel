@@ -102,8 +102,14 @@ section.fords-flash-carousel {
   z-index: 1001;
   width: 100%;
   height: 100%;
-  padding-top: 250px;
+  padding-top: 200px;
   position: absolute;
+}
+
+@media (width >= 768px) {
+  .slideshow__content {
+    padding-top: 250px;
+  }
 }
 
 .slide__content {
@@ -111,7 +117,7 @@ section.fords-flash-carousel {
   flex-direction: column;
   justify-content: start;
   width: 100%;
-  padding-bottom: 100px;
+  padding-bottom: 37px;
   display: flex;
   position: relative;
   bottom: 0;
@@ -121,6 +127,7 @@ section.fords-flash-carousel {
   .slide__content {
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 100px;
   }
 }
 
@@ -251,11 +258,18 @@ section.fords-flash-carousel {
   opacity: 0;
   will-change: opacity, transform;
   word-wrap: break-word;
+  padding-left: 10px;
   font-family: roobert, sans-serif;
-  font-size: clamp(40px, 10vw, 167px);
-  line-height: .75em;
+  font-size: clamp(60px, 10vw, 167px);
+  line-height: .9em;
   display: none;
   position: relative;
+}
+
+@media (width >= 768px) {
+  .meta__content-title {
+    line-height: .75em;
+  }
 }
 
 .number {
@@ -267,7 +281,13 @@ section.fords-flash-carousel {
 }
 
 .new__line__title {
-  padding-left: 10%;
+  padding-left: 0;
+}
+
+@media (width >= 768px) {
+  .new__line__title {
+    padding-left: 10%;
+  }
 }
 
 .new__line__title > span {
