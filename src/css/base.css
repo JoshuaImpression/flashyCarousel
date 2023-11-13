@@ -215,6 +215,15 @@ section.fords-flash-carousel {
 	background: rgba(255, 255, 255, .2);
 }
 
+.bar__gradient {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 1px;
+	background: linear-gradient(to right, rgba(242, 138, 205, 1),rgba(37, 175, 255, 1));
+}
+
 .meta__nav__prev {
 	margin-right: 10px;
 	color: red;
