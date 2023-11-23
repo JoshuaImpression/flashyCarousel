@@ -28,7 +28,7 @@ const animateBodyBGColor = () => {
     .to(bodyEl, {
         duration: slideshowMain.duration/2,
         ease: 'power3.in',
-        backgroundColor: '#2b0889'
+        backgroundColor: '#E868C3'
     }, 'start')
     .to(bodyEl, {
         duration: slideshowMain.duration,
@@ -59,17 +59,25 @@ const onClickNavCtrlEv = (dir) => {
     gsap.to(titleElems[slideshowMain.current], {
         duration: slideshowMain.duration/2,
         ease: 'power3.in',
-        y: dir === 'next' ? '-100%' : '100%',
+        x: dir === 'next' ? '-100%' : '100%',
         autoAlpha: 0,
         display: "none"
     });
 
 
     // Fade out current info block
+    // gsap.to(infoElems[slideshowMain.current], {
+    //     duration: slideshowMain.duration/2,
+    //     ease: 'power3.in',
+    //     y: dir === 'next' ? '-100%' : '100%',
+    //     autoAlpha: 0,
+    //     display: "none"
+    // });
+
     gsap.to(infoElems[slideshowMain.current], {
         duration: slideshowMain.duration/2,
         ease: 'power3.in',
-        y: dir === 'next' ? '-100%' : '100%',
+        x: dir === 'next' ? '-30%' : '30%',
         autoAlpha: 0,
         display: "none"
     });
@@ -83,19 +91,29 @@ const onClickNavCtrlEv = (dir) => {
     gsap.to(titleElems[slideshowMain.current], {
         duration: slideshowMain.duration/2,
         ease: 'power3',
-        startAt: {y: dir === 'next' ? '100%' : '-100%'},
-        y: '0%',
+        startAt: {x: dir === 'next' ? '100%' : '-100%'},
+        x: '0%',
         autoAlpha: 1,
         display: "block",
         delay: slideshowMain.duration/2
     });
 
     // Slide in the new info block
+    // gsap.to(infoElems[slideshowMain.current], {
+    //     duration: slideshowMain.duration/2,
+    //     ease: 'power3',
+    //     startAt: {y: dir === 'next' ? '100%' : '-100%'},
+    //     y: '0%',
+    //     autoAlpha: 1,
+    //     display: "block",
+    //     delay: slideshowMain.duration/2
+    // });
+
     gsap.to(infoElems[slideshowMain.current], {
         duration: slideshowMain.duration/2,
         ease: 'power3',
-        startAt: {y: dir === 'next' ? '100%' : '-100%'},
-        y: '0%',
+        startAt: {x: dir === 'next' ? '30%' : '-30%'},
+        x: '0%',
         autoAlpha: 1,
         display: "block",
         delay: slideshowMain.duration/2
