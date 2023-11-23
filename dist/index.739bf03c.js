@@ -606,7 +606,7 @@ const animateBodyBGColor = ()=>{
     (0, _gsapDefault.default).timeline().to(bodyEl, {
         duration: slideshowMain.duration / 2,
         ease: "power3.in",
-        backgroundColor: "#2b0889"
+        backgroundColor: "#E868C3"
     }, "start").to(bodyEl, {
         duration: slideshowMain.duration,
         ease: "power3",
@@ -635,15 +635,22 @@ const onClickNavCtrlEv = (dir)=>{
     (0, _gsapDefault.default).to(titleElems[slideshowMain.current], {
         duration: slideshowMain.duration / 2,
         ease: "power3.in",
-        y: dir === "next" ? "-100%" : "100%",
+        x: dir === "next" ? "-100%" : "100%",
         autoAlpha: 0,
         display: "none"
     });
     // Fade out current info block
+    // gsap.to(infoElems[slideshowMain.current], {
+    //     duration: slideshowMain.duration/2,
+    //     ease: 'power3.in',
+    //     y: dir === 'next' ? '-100%' : '100%',
+    //     autoAlpha: 0,
+    //     display: "none"
+    // });
     (0, _gsapDefault.default).to(infoElems[slideshowMain.current], {
         duration: slideshowMain.duration / 2,
         ease: "power3.in",
-        y: dir === "next" ? "-100%" : "100%",
+        x: dir === "next" ? "-30%" : "30%",
         autoAlpha: 0,
         display: "none"
     });
@@ -656,21 +663,30 @@ const onClickNavCtrlEv = (dir)=>{
         duration: slideshowMain.duration / 2,
         ease: "power3",
         startAt: {
-            y: dir === "next" ? "100%" : "-100%"
+            x: dir === "next" ? "100%" : "-100%"
         },
-        y: "0%",
+        x: "0%",
         autoAlpha: 1,
         display: "block",
         delay: slideshowMain.duration / 2
     });
     // Slide in the new info block
+    // gsap.to(infoElems[slideshowMain.current], {
+    //     duration: slideshowMain.duration/2,
+    //     ease: 'power3',
+    //     startAt: {y: dir === 'next' ? '100%' : '-100%'},
+    //     y: '0%',
+    //     autoAlpha: 1,
+    //     display: "block",
+    //     delay: slideshowMain.duration/2
+    // });
     (0, _gsapDefault.default).to(infoElems[slideshowMain.current], {
         duration: slideshowMain.duration / 2,
         ease: "power3",
         startAt: {
-            y: dir === "next" ? "100%" : "-100%"
+            x: dir === "next" ? "30%" : "-30%"
         },
-        y: "0%",
+        x: "0%",
         autoAlpha: 1,
         display: "block",
         delay: slideshowMain.duration / 2
